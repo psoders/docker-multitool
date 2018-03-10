@@ -6,4 +6,4 @@ Just debug your docker environment
 `docker run -it --rm psoders/multitool`
 
 ###kubernetes
-`kubectl run -it --rm psoders/multitool`
+`kubectl run -it --rm  multitool --image=psoders/multitool`
