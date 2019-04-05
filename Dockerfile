@@ -9,6 +9,8 @@ RUN apt-get update \
        wget \
        gnupg \
        curl \
+       net-tools \
+       inetutils-traceroute \
        vim
 
 RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
