@@ -11,13 +11,16 @@ RUN apt-get update \
        curl \
        net-tools \
        inetutils-traceroute \
-       vim
+       vim \
+       jq
 
 RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
     && echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main 10" >  /etc/apt/sources.list.d/pgdg.list \
     && apt-get update \
     && apt-get install -y \
        mysql-client \
-       postgresql-client-10
+       postgresql-client-12 \
+       redis-tools \
+       kafkacat
 
 CMD ["bash"]
