@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM ubuntu:22.04
 
 RUN apt-get update \
     && apt-get install -y \
@@ -12,15 +12,11 @@ RUN apt-get update \
        net-tools \
        inetutils-traceroute \
        vim \
-       jq
-
-RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
-    && echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main 10" >  /etc/apt/sources.list.d/pgdg.list \
-    && apt-get update \
-    && apt-get install -y \
+       jq \
        mysql-client \
-       postgresql-client-12 \
+       postgresql-client \
        redis-tools \
-       kafkacat
+       kafkacat \
+    && rm -rf /var/lib/apt/lists/*
 
 CMD ["bash"]
